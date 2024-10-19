@@ -1,7 +1,7 @@
 from individual import Individual
 import _random
 
-#    algorithm parameters    
+#    algorithm parameters
 genotype_size = 100
 pop_size = 100
 crossover_rate = 0.75
@@ -16,6 +16,7 @@ def show_average_population_fitness(population):
     sum = 0
     for ind in population:
         #        ind.calc_fitness( )
+        #print('Caracteristica: {0}'.format(ind.caracteristica))
         sum += ind.fitness
     print('Soma é: {0}'.format(sum))
     print('\tMédia de aptidão da população é: {0:.3f}'.format(sum / pop_size))
@@ -162,7 +163,7 @@ for run in range(num_runs):
 
     #    Loop geracional
     for n in range(1, num_gen+1):
-        print('\tGeração: {0}'.format(n))
+        print('\n\tGeração: {0}'.format(n))
         # Selecionar os pais
         select_parents(population, mating_pool)
 
@@ -180,5 +181,7 @@ for run in range(num_runs):
         show_average_population_fitness(population)
 
 # Mostrando a populaçao final
+print("\nPopulação final:\n")
+show_average_population_fitness(population)
 for n in range(pop_size):
     print(population[n].caracteristica)
